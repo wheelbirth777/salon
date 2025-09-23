@@ -1,0 +1,29 @@
+/** Swiper styles **/
+
+.swiper {
+  user-select: none;
+  box-sizing: border-box;
+  overflow: visible;
+  width: 100%;
+
+  padding: 0px 0px;
+}
+
+.swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.swiper-slide-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  position: relative;
+  z-index: 1;
+  box-sizing: border-box;
+}

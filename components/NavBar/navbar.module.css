@@ -1,0 +1,27 @@
+.dropdown {
+  width: 100vw;
+  height: 60px;
+}
+
+.wrapper {
+  position: relative;
+  height: 60px;
+  padding: 0;
+  background: black;
+
+  display: flex;
+
+  .innerWrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    padding-bottom: 3px;
+
+    @apply bg-orange-900;
+
+    z-index: 9999999;
+    display: flex;
+    justify-content: center;
+  }
+}

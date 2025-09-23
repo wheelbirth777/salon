@@ -1,0 +1,45 @@
+.serviceSlider {
+  padding-bottom: 50px;
+}
+
+.serviceSlider .swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.serviceSlider .swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.serviceSlider .swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.serviceSlider .swiper-pagination {
+  position: absolute;
+  text-align: center;
+  transition: 300ms opacity;
+  transform: translate3d(0, 0, 0);
+  z-index: 1000 !important;
+  bottom: 20px !important;
+  overflow: visible !important;
+}
+
+.serviceSlider .swiper-pagination-bullet {
+  @apply w-4 h-4 bg-white rounded-none !important;
+}
+
+.serviceSlider .swiper-pagination-bullet-active {
+  opacity: 1;
+  background: orange;
+}
