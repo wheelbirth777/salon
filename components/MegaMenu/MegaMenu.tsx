@@ -85,15 +85,25 @@ const COMPANY: LinkItem[] = [
 
 /* ---------------- Component ---------------- */
 export function MegaMenu() {
+  // No bg + lock text color to white for hover/open/focus/active
+  const triggerNoBgWhiteText =
+    "bg-transparent px-3 py-2 rounded-md text-white " +
+    "hover:text-white focus:text-white active:text-white " +
+    "data-[state=open]:text-white data-[active]:text-white " +
+    "hover:!bg-transparent focus:!bg-transparent active:!bg-transparent " +
+    "data-[state=open]:!bg-transparent data-[active]:!bg-transparent " +
+    "[&[data-state=open]]:!bg-transparent " +
+    "focus-visible:ring-2 focus-visible:ring-blue-400";
+
   return (
     <NavigationMenu viewport={false}>
-      <NavigationMenuList className="bg-transparent text-slate-100 px-4 py-2 rounded-lg">
-        {/* Home */}
+      <NavigationMenuList className="bg-transparent text-white px-4 py-2 rounded-lg">
+        {/* Home (link, not trigger) */}
         <NavigationMenuItem>
           <NavigationMenuLink asChild>
             <Link
               href="/"
-              className="px-3 py-2 rounded-md hover:text-orange-400 hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
+              className="px-3 py-2 rounded-md text-white hover:text-white hover:!bg-transparent focus:!bg-transparent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
             >
               Home
             </Link>
@@ -102,7 +112,7 @@ export function MegaMenu() {
 
         {/* Solutions */}
         <NavigationMenuItem>
-          <NavigationMenuTrigger className="bg-transparent px-3 py-2 rounded-md text-slate-100 hover:text-orange-400 hover:bg-white/10 focus-visible:ring-2 focus-visible:ring-blue-400">
+          <NavigationMenuTrigger className={triggerNoBgWhiteText}>
             Solutions
           </NavigationMenuTrigger>
           <NavigationMenuContent className="rounded-md border border-white/10 bg-gradient-to-b from-slate-950 to-slate-900 text-slate-100 shadow-2xl backdrop-blur">
@@ -140,7 +150,7 @@ export function MegaMenu() {
 
         {/* Services */}
         <NavigationMenuItem>
-          <NavigationMenuTrigger className="bg-transparent px-3 py-2 rounded-md text-slate-100 hover:text-orange-400 hover:bg-white/10 focus-visible:ring-2 focus-visible:ring-blue-400">
+          <NavigationMenuTrigger className={triggerNoBgWhiteText}>
             Services
           </NavigationMenuTrigger>
           <NavigationMenuContent className="rounded-md border border-white/10 bg-gradient-to-b from-slate-950 to-slate-900 text-slate-100 shadow-2xl backdrop-blur">
@@ -180,7 +190,7 @@ export function MegaMenu() {
 
         {/* Work */}
         <NavigationMenuItem>
-          <NavigationMenuTrigger className="bg-transparent px-3 py-2 rounded-md text-slate-100 hover:text-orange-400 hover:bg-white/10 focus-visible:ring-2 focus-visible:ring-blue-400">
+          <NavigationMenuTrigger className={triggerNoBgWhiteText}>
             Work
           </NavigationMenuTrigger>
           <NavigationMenuContent className="rounded-md border border-white/10 bg-gradient-to-b from-slate-950 to-slate-900 text-slate-100 shadow-2xl backdrop-blur">
@@ -192,12 +202,12 @@ export function MegaMenu() {
           </NavigationMenuContent>
         </NavigationMenuItem>
 
-        {/* Pricing */}
+        {/* Pricing (link) */}
         <NavigationMenuItem>
           <NavigationMenuLink asChild>
             <Link
               href="/pricing-2"
-              className="px-3 py-2 rounded-md hover:text-orange-400 hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
+              className="px-3 py-2 rounded-md text-white hover:text-white hover:!bg-transparent focus:!bg-transparent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
             >
               Pricing
             </Link>
@@ -206,7 +216,7 @@ export function MegaMenu() {
 
         {/* Resources */}
         <NavigationMenuItem>
-          <NavigationMenuTrigger className="bg-transparent px-3 py-2 rounded-md text-slate-100 hover:text-orange-400 hover:bg-white/10 focus-visible:ring-2 focus-visible:ring-blue-400">
+          <NavigationMenuTrigger className={triggerNoBgWhiteText}>
             Resources
           </NavigationMenuTrigger>
           <NavigationMenuContent className="rounded-md border border-white/10 bg-gradient-to-b from-slate-950 to-slate-900 text-slate-100 shadow-2xl backdrop-blur">
@@ -220,7 +230,7 @@ export function MegaMenu() {
 
         {/* Company */}
         <NavigationMenuItem>
-          <NavigationMenuTrigger className="bg-transparent px-3 py-2 rounded-md text-slate-100 hover:text-orange-400 hover:bg-white/10 focus-visible:ring-2 focus-visible:ring-blue-400">
+          <NavigationMenuTrigger className={triggerNoBgWhiteText}>
             Company
           </NavigationMenuTrigger>
           <NavigationMenuContent className="rounded-md border border-white/10 bg-gradient-to-b from-slate-950 to-slate-900 text-slate-100 shadow-2xl backdrop-blur">
@@ -237,6 +247,7 @@ export function MegaMenu() {
 }
 
 /* ---------------- Building blocks ---------------- */
+type LinkItem = { title: string; href: string; description?: string };
 function MenuItem({ item }: { item: LinkItem }) {
   return (
     <li>
