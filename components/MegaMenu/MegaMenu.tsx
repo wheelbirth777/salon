@@ -247,7 +247,7 @@ export function MegaMenu() {
 }
 
 /* ---------------- Building blocks ---------------- */
-type LinkItem = { title: string; href: string; description?: string };
+
 function MenuItem({ item }: { item: LinkItem }) {
   return (
     <li>
