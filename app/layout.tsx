@@ -2,11 +2,11 @@
 
 import localFont from "next/font/local";
 import Navbar from "@/components/NavBar/Navbar";
-import Footer from "@/components/Footer/Footer";
 
 import "./globals.css";
 
 import { AuthProvider } from "@/contexts/AuthContext";
+import FooterSection from "@/components/ui/FooterSection";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -39,7 +39,7 @@ export default function RootLayout({
         <AuthProvider>
           <Navbar />
           {children}
-          <Footer />
+          <FooterSection />
         </AuthProvider>
       </body>
     </html>
