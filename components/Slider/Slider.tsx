@@ -26,7 +26,7 @@ type Slide = {
   img: string;
   title: string;
   subtext?: string;
-  scrollItems?: string[]; // if present, we'll marquee these
+  scrollItems?: string[];
   priority?: boolean;
 };
 
@@ -34,29 +34,30 @@ const SLIDES: Slide[] = [
   {
     hash: "slide-1",
     img: "/images/slide1.webp",
-    title: "Launch-Ready Websites",
+    title: "Spa & Salon Websites, Ready to Launch",
     scrollItems: [
-      "Beautiful, fast, and built to convert.",
-      "Live in days, not months.",
-      "Hosting, analytics, and SEO included.",
+      "Online booking with deposits & no-show protection",
+      "Service menus, packages, and add-ons that upsell",
+      "eGift cards, memberships, and promo codes",
     ],
     priority: true,
   },
   {
     hash: "slide-2",
     img: "/images/slide2.webp",
-    title: "Modern Stacks",
+    title: "Built for Busy Teams",
     scrollItems: [
-      "Next.js • Tailwind • Prisma",
-      "Optimized images & lighthouse scores",
-      "Clean, maintainable codebases",
+      "Stylist calendars, room scheduling, and shift planning",
+      "POS-friendly receipts, tips pooling, inventory tracking",
+      "SMS/email reminders, reviews, and before/after galleries",
     ],
   },
   {
     hash: "slide-3",
     img: "/images/slide3.webp",
-    title: "Scale with Confidence",
-    subtext: "SEO, analytics, and best practices baked in from day one.",
+    title: "Grow Bookings. Reduce No-Shows.",
+    subtext:
+      "Local SEO, fast load times, and automated reminders help you rank higher, get more appointments, and keep chairs filled.",
   },
 ];
 
@@ -78,6 +79,17 @@ export default function MySwiper() {
     hashNavigation: { enabled: true, watchState: true },
     watchSlidesProgress: true,
     slidesPerGroupAuto: false,
+  };
+
+  const wrapAlign = (hash: string) => {
+    if (hash === "slide-2") return "ml-auto text-right";
+    if (hash === "slide-3") return "mx-auto text-center";
+    return "";
+  };
+
+  const flexJustify = (hash: string) => {
+    if (hash === "slide-3") return "justify-center";
+    return "";
   };
 
   return (
@@ -105,17 +117,19 @@ export default function MySwiper() {
             />
 
             {/* overlay content */}
-            <div className="absolute inset-0 flex items-center">
+            <div
+              className={`absolute inset-0 flex items-center ${flexJustify(
+                s.hash
+              )}`}
+            >
               <div className="px-6 sm:px-10 lg:px-16 w-full">
-                <div className="max-w-4xl">
+                <div className={`max-w-4xl ${wrapAlign(s.hash)}`}>
                   <h1 className="text-white text-3xl sm:text-5xl lg:text-6xl font-bold leading-tight drop-shadow">
                     {s.title}
                   </h1>
 
-                  {/* If scrollItems provided, render marquee-style vertical scroll; else render subtext normally */}
                   {s.scrollItems ? (
                     <div className="mt-4 relative h-14 sm:h-16 lg:h-20 overflow-hidden">
-                      {/* duplicate list for seamless loop */}
                       <ul className="scroll-vert text-white/90 text-base sm:text-lg lg:text-xl leading-relaxed drop-shadow">
                         {s.scrollItems.map((item, idx) => (
                           <li key={`a-${idx}`} className="py-1">
@@ -130,7 +144,7 @@ export default function MySwiper() {
                       </ul>
                     </div>
                   ) : s.subtext ? (
-                    <p className="mt-4 text-white/90 text-base sm:text-lg lg:text-xl leading-relaxed max-w-2xl drop-shadow">
+                    <p className="mt-4 text-white/90 text-base sm:text-lg lg:text-xl leading-relaxed max-w-2xl drop-shadow mx-auto md:mx-0">
                       {s.subtext}
                     </p>
                   ) : null}

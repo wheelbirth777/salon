@@ -3,7 +3,6 @@ import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-import OurServices from "@/components/OurServices/OurServices";
 import AppointmentSection from "@/components/ui/AppointmentSection";
 import BlogSection from "@/components/ui/BlogSection";
 import GetToKnowUs from "@/components/ui/GetToKnowUs";
@@ -13,7 +12,7 @@ import TestimonialsSection from "@/components/ui/TestimonialsSection";
 import HeroSpa from "@/components/HeroSpa";
 import MySwiper from "@/components/Slider/Slider";
 import SpaPricingSection from "@/components/ui/SpaPricingSection";
-import TeamCarousel from "@/components/ui/TeamCarousel";
+
 import TreatmentPricingSection from "@/components/ui/TreatmentPricingSection";
 import InstagramStrip from "@/components/ui/InstagramStrip";
 import QuoteSection from "@/components/ui/QuoteSection";
@@ -33,10 +32,10 @@ const Page = () => {
         <GetToKnowUs />
         <AppointmentSection />
         <SpaPricingSection />
-        <TeamCarousel />
+
         <BlogSection />
         <TreatmentPricingSection />
-        <OurServices />
+
         <QuoteSection />
         <InstagramStrip
           title="Follow On Instagram"
