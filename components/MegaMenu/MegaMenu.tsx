@@ -10,10 +10,44 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
+import type { ElementType } from "react";
+import {
+  Scissors,
+  Brush,
+  Wand2,
+  Hand,
+  Sparkles,
+  Eye,
+  Palette,
+  User,
+  Gift,
+  Package,
+  Calendar,
+  ShoppingCart,
+  Megaphone,
+  LayoutTemplate,
+  Images,
+  ListChecks,
+  BadgePercent,
+  Mail,
+  Star,
+  Share2,
+  Users,
+  Briefcase,
+  MapPin,
+  Clock,
+} from "lucide-react";
 
-/* ---------------- Data ---------------- */
-type LinkItem = { title: string; href: string; description?: string };
-type LinkGroup = { heading: string; items: LinkItem[] };
+/* ---------------- Types ---------------- */
+type LinkItem = {
+  title: string;
+  href: string;
+  description?: string;
+  icon?: ElementType;
+};
+type LinkGroup = { heading: string; icon?: ElementType; items: LinkItem[] };
+
+/* ---------------- Data (Salon & Spa + Icons) ---------------- */
 
 /** TREATMENTS (formerly "Solutions") */
 const SOLUTIONS: LinkItem[] = [
@@ -21,86 +55,156 @@ const SOLUTIONS: LinkItem[] = [
     title: "All Treatments",
     href: "/treatments",
     description: "Browse the full salon & spa menu.",
+    icon: ListChecks,
   },
-  { title: "Haircut & Styling", href: "/treatments/haircut-styling" },
-  { title: "Color & Highlights", href: "/treatments/color-highlights" },
-  { title: "Keratin & Smoothing", href: "/treatments/keratin-smoothing" },
-  { title: "Manicure & Pedicure", href: "/treatments/nails" },
-  { title: "Facials & Skin Care", href: "/treatments/facials" },
-  { title: "Massage Therapy", href: "/treatments/massage" },
-  { title: "Waxing & Threading", href: "/treatments/waxing-threading" },
-  { title: "Lashes & Brows", href: "/treatments/lashes-brows" },
-  { title: "Makeup & Bridal", href: "/treatments/makeup-bridal" },
-  { title: "Men’s Grooming", href: "/treatments/mens" },
-  { title: "Spa Packages", href: "/treatments/packages" },
+  {
+    title: "Haircut & Styling",
+    href: "/treatments/haircut-styling",
+    icon: Scissors,
+  },
+  {
+    title: "Color & Highlights",
+    href: "/treatments/color-highlights",
+    icon: Brush,
+  },
+  {
+    title: "Keratin & Smoothing",
+    href: "/treatments/keratin-smoothing",
+    icon: Wand2,
+  },
+  { title: "Manicure & Pedicure", href: "/treatments/nails", icon: Hand },
+  { title: "Facials & Skin Care", href: "/treatments/facials", icon: Sparkles },
+  { title: "Massage Therapy", href: "/treatments/massage", icon: Hand },
+  {
+    title: "Waxing & Threading",
+    href: "/treatments/waxing-threading",
+    icon: Wand2,
+  },
+  { title: "Lashes & Brows", href: "/treatments/lashes-brows", icon: Eye },
+  {
+    title: "Makeup & Bridal",
+    href: "/treatments/makeup-bridal",
+    icon: Palette,
+  },
+  { title: "Men’s Grooming", href: "/treatments/mens", icon: User },
+  { title: "Spa Packages", href: "/treatments/packages", icon: Package },
 ];
 
 /** OPERATIONS & ADD-ONS (formerly generic services) */
 const SERVICES: LinkGroup[] = [
   {
     heading: "Booking & Operations",
+    icon: Calendar,
     items: [
-      { title: "Online Booking", href: "/services/booking" },
-      { title: "Staff Scheduling", href: "/services/scheduling" },
-      { title: "Client Profiles", href: "/services/clients" },
-      { title: "Memberships & Packages", href: "/services/memberships" },
-      { title: "Gift Cards & Vouchers", href: "/services/gift-cards" },
-      { title: "Reminders & Waitlist", href: "/services/reminders" },
+      { title: "Online Booking", href: "/services/booking", icon: Calendar },
+      {
+        title: "Staff Scheduling",
+        href: "/services/scheduling",
+        icon: Calendar,
+      },
+      { title: "Client Profiles", href: "/services/clients", icon: Users },
+      {
+        title: "Memberships & Packages",
+        href: "/services/memberships",
+        icon: Package,
+      },
+      {
+        title: "Gift Cards & Vouchers",
+        href: "/services/gift-cards",
+        icon: Gift,
+      },
+      {
+        title: "Reminders & Waitlist",
+        href: "/services/reminders",
+        icon: Mail,
+      },
     ],
   },
   {
     heading: "Retail & POS",
+    icon: ShoppingCart,
     items: [
-      { title: "Product Catalog", href: "/services/retail" },
-      { title: "Point of Sale", href: "/services/pos" },
-      { title: "Inventory Tracking", href: "/services/inventory" },
-      { title: "Coupons & Promotions", href: "/services/promotions" },
+      { title: "Product Catalog", href: "/services/retail", icon: Images },
+      { title: "Point of Sale", href: "/services/pos", icon: ShoppingCart },
+      {
+        title: "Inventory Tracking",
+        href: "/services/inventory",
+        icon: ListChecks,
+      },
+      {
+        title: "Coupons & Promotions",
+        href: "/services/promotions",
+        icon: BadgePercent,
+      },
     ],
   },
   {
     heading: "Marketing & Growth",
+    icon: Megaphone,
     items: [
-      { title: "Email & SMS", href: "/services/marketing" },
-      { title: "Loyalty & Rewards", href: "/services/loyalty" },
-      { title: "Reviews & Referrals", href: "/services/reviews" },
-      { title: "Social & Instagram", href: "/services/social" },
+      { title: "Email & SMS", href: "/services/marketing", icon: Mail },
+      { title: "Loyalty & Rewards", href: "/services/loyalty", icon: Star },
+      { title: "Reviews & Referrals", href: "/services/reviews", icon: Share2 },
+      { title: "Social & Instagram", href: "/services/social", icon: Images },
     ],
   },
   {
     heading: "Website & Branding",
+    icon: LayoutTemplate,
     items: [
-      { title: "Theme Customization", href: "/services/theme" },
-      { title: "Gallery & Before/After", href: "/services/gallery" },
-      { title: "Menu & Pricing Pages", href: "/services/menu-pricing" },
-      { title: "SEO Basics", href: "/services/seo" },
+      {
+        title: "Theme Customization",
+        href: "/services/theme",
+        icon: LayoutTemplate,
+      },
+      {
+        title: "Gallery & Before/After",
+        href: "/services/gallery",
+        icon: Images,
+      },
+      {
+        title: "Menu & Pricing Pages",
+        href: "/services/menu-pricing",
+        icon: ListChecks,
+      },
+      { title: "SEO Basics", href: "/services/seo", icon: Megaphone },
     ],
   },
 ];
 
 /** SHOWCASE (formerly Work) */
 const WORK: LinkItem[] = [
-  { title: "Gallery", href: "/gallery" },
-  { title: "Makeovers (Before & After)", href: "/gallery/before-after" },
-  { title: "Client Stories", href: "/stories" },
-  { title: "Reviews & Testimonials", href: "/reviews" },
+  { title: "Gallery", href: "/gallery", icon: Images },
+  {
+    title: "Makeovers (Before & After)",
+    href: "/gallery/before-after",
+    icon: Wand2,
+  },
+  { title: "Client Stories", href: "/stories", icon: Users },
+  { title: "Reviews & Testimonials", href: "/reviews", icon: Star },
 ];
 
 /** HELP & INFO (formerly Resources) */
 const RESOURCES: LinkItem[] = [
-  { title: "Style & Skin Blog", href: "/blog" },
-  { title: "Care Guides (Aftercare)", href: "/guides" },
-  { title: "Policies & FAQs", href: "/policies" },
-  { title: "Gift Card Balance", href: "/gift-cards/balance" },
+  { title: "Style & Skin Blog", href: "/blog", icon: Brush },
+  { title: "Care Guides (Aftercare)", href: "/guides", icon: ListChecks },
+  { title: "Policies & FAQs", href: "/policies", icon: HelpIcon },
+  { title: "Gift Card Balance", href: "/gift-cards/balance", icon: Gift },
 ];
 
 /** ABOUT (Company) */
 const COMPANY: LinkItem[] = [
-  { title: "About the Spa", href: "/about" },
-  { title: "Our Team", href: "/team" },
-  { title: "Careers", href: "/careers" },
-  { title: "Contact & Location", href: "/contact" },
-  { title: "Hours & Policies", href: "/hours" },
+  { title: "About the Spa", href: "/about", icon: Sparkles },
+  { title: "Our Team", href: "/team", icon: Users },
+  { title: "Careers", href: "/careers", icon: Briefcase },
+  { title: "Contact & Location", href: "/contact", icon: MapPin },
+  { title: "Hours & Policies", href: "/hours", icon: Clock },
 ];
+
+/* Fallback icon for "Policies & FAQs" */
+function HelpIcon(props: React.SVGProps<SVGSVGElement>) {
+  return <Sparkles {...props} />; // swap to a custom help icon if you prefer
+}
 
 /* ---------------- Component ---------------- */
 export function MegaMenu() {
@@ -129,7 +233,7 @@ export function MegaMenu() {
           </NavigationMenuLink>
         </NavigationMenuItem>
 
-        {/* Treatments (renamed from Solutions) */}
+        {/* Treatments */}
         <NavigationMenuItem>
           <NavigationMenuTrigger className={triggerNoBgWhiteText}>
             Treatments
@@ -148,7 +252,10 @@ export function MegaMenu() {
               </ul>
               <div className="flex flex-col justify-between rounded-md border border-white/10 bg-gradient-to-br from-pink-600 to-rose-500 p-4">
                 <div>
-                  <div className="text-xs text-pink-100">New Guests</div>
+                  <div className="flex items-center gap-1 text-xs text-pink-100">
+                    <Sparkles className="h-3.5 w-3.5" />
+                    New Guests
+                  </div>
                   <div className="mt-1 text-base font-semibold text-white">
                     Explore Our Service Menu
                   </div>
@@ -158,16 +265,17 @@ export function MegaMenu() {
                 </div>
                 <Link
                   href="/treatments"
-                  className="mt-3 inline-flex items-center justify-center rounded-md bg-orange-500 px-3 py-2 text-xs font-semibold text-white hover:bg-orange-400"
+                  className="mt-3 inline-flex items-center justify-center gap-2 rounded-md bg-orange-500 px-3 py-2 text-xs font-semibold text-white hover:bg-orange-400"
                 >
-                  See Menu →
+                  <ListChecks className="h-3.5 w-3.5" />
+                  See Menu
                 </Link>
               </div>
             </div>
           </NavigationMenuContent>
         </NavigationMenuItem>
 
-        {/* Services (ops, marketing, website, etc.) */}
+        {/* Services */}
         <NavigationMenuItem>
           <NavigationMenuTrigger className={triggerNoBgWhiteText}>
             Services
@@ -176,7 +284,8 @@ export function MegaMenu() {
             <div className="grid gap-5 p-4 md:w-[760px] md:grid-cols-4">
               {SERVICES.map((group) => (
                 <div key={group.heading}>
-                  <h4 className="mb-1.5 text-xs font-semibold uppercase tracking-wide text-blue-200">
+                  <h4 className="mb-1.5 flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wide text-blue-200">
+                    {group.icon ? <group.icon className="h-3.5 w-3.5" /> : null}
                     {group.heading}
                   </h4>
                   <ul className="space-y-1">
@@ -188,7 +297,10 @@ export function MegaMenu() {
               ))}
               <div className="flex flex-col justify-between rounded-md border border-white/10 bg-white/[.06] p-4">
                 <div>
-                  <div className="text-xs text-blue-200">Need a quote?</div>
+                  <div className="flex items-center gap-1 text-xs text-blue-200">
+                    <Mail className="h-3.5 w-3.5" />
+                    Need a quote?
+                  </div>
                   <div className="mt-1 text-base font-semibold text-slate-100">
                     Request a Proposal
                   </div>
@@ -198,16 +310,17 @@ export function MegaMenu() {
                 </div>
                 <Link
                   href="/contact?type=quote"
-                  className="mt-3 inline-flex items-center justify-center rounded-md bg-orange-500 px-3 py-2 text-xs font-semibold text-white hover:bg-orange-400"
+                  className="mt-3 inline-flex items-center justify-center gap-2 rounded-md bg-orange-500 px-3 py-2 text-xs font-semibold text-white hover:bg-orange-400"
                 >
-                  Get a Quote →
+                  <Mail className="h-3.5 w-3.5" />
+                  Get a Quote
                 </Link>
               </div>
             </div>
           </NavigationMenuContent>
         </NavigationMenuItem>
 
-        {/* Showcase (was Work) */}
+        {/* Showcase */}
         <NavigationMenuItem>
           <NavigationMenuTrigger className={triggerNoBgWhiteText}>
             Showcase
@@ -268,6 +381,7 @@ export function MegaMenu() {
 /* ---------------- Building blocks ---------------- */
 
 function MenuItem({ item }: { item: LinkItem }) {
+  const Icon = item.icon;
   return (
     <li>
       <NavigationMenuLink asChild>
@@ -275,8 +389,11 @@ function MenuItem({ item }: { item: LinkItem }) {
           href={item.href}
           className="block rounded-md p-3 transition-colors hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
         >
-          <div className="text-sm font-medium text-slate-100 hover:text-orange-300">
-            {item.title}
+          <div className="flex items-center gap-2">
+            {Icon ? <Icon className="h-4 w-4 text-orange-300" /> : null}
+            <div className="text-sm font-medium text-slate-100 hover:text-orange-300">
+              {item.title}
+            </div>
           </div>
           {item.description && (
             <p className="mt-1 text-xs leading-5 text-slate-300">
