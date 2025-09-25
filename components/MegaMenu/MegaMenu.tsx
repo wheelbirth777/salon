@@ -15,72 +15,91 @@ import {
 type LinkItem = { title: string; href: string; description?: string };
 type LinkGroup = { heading: string; items: LinkItem[] };
 
+/** TREATMENTS (formerly "Solutions") */
 const SOLUTIONS: LinkItem[] = [
   {
-    title: "All Launch-Ready Websites",
-    href: "/launch-ready",
-    description: "Browse every industry starter we offer.",
+    title: "All Treatments",
+    href: "/treatments",
+    description: "Browse the full salon & spa menu.",
   },
-  { title: "Salon", href: "/solutions/salon" },
-  { title: "Law Firm", href: "/solutions/law-firm" },
-  { title: "Dentist", href: "/solutions/dentist" },
-  { title: "HVAC / AC Repair", href: "/solutions/hvac" },
-  { title: "Restaurant", href: "/solutions/restaurant" },
-  { title: "Real Estate", href: "/solutions/real-estate" },
-  { title: "Fitness / Gym", href: "/solutions/fitness" },
-  { title: "E-commerce", href: "/solutions/ecommerce" },
-  { title: "Nonprofit", href: "/solutions/nonprofit" },
-  { title: "Portfolio / Creator", href: "/solutions/portfolio" },
+  { title: "Haircut & Styling", href: "/treatments/haircut-styling" },
+  { title: "Color & Highlights", href: "/treatments/color-highlights" },
+  { title: "Keratin & Smoothing", href: "/treatments/keratin-smoothing" },
+  { title: "Manicure & Pedicure", href: "/treatments/nails" },
+  { title: "Facials & Skin Care", href: "/treatments/facials" },
+  { title: "Massage Therapy", href: "/treatments/massage" },
+  { title: "Waxing & Threading", href: "/treatments/waxing-threading" },
+  { title: "Lashes & Brows", href: "/treatments/lashes-brows" },
+  { title: "Makeup & Bridal", href: "/treatments/makeup-bridal" },
+  { title: "Men’s Grooming", href: "/treatments/mens" },
+  { title: "Spa Packages", href: "/treatments/packages" },
 ];
 
+/** OPERATIONS & ADD-ONS (formerly generic services) */
 const SERVICES: LinkGroup[] = [
   {
-    heading: "Design",
+    heading: "Booking & Operations",
     items: [
-      { title: "UI/UX Design", href: "/services/ui-ux" },
-      { title: "Brand & Visual Systems", href: "/services/brand" },
+      { title: "Online Booking", href: "/services/booking" },
+      { title: "Staff Scheduling", href: "/services/scheduling" },
+      { title: "Client Profiles", href: "/services/clients" },
+      { title: "Memberships & Packages", href: "/services/memberships" },
+      { title: "Gift Cards & Vouchers", href: "/services/gift-cards" },
+      { title: "Reminders & Waitlist", href: "/services/reminders" },
     ],
   },
   {
-    heading: "Development",
+    heading: "Retail & POS",
     items: [
-      { title: "SPA / Next.js Apps", href: "/services/spa-nextjs" },
-      { title: "API Integrations", href: "/services/api-integrations" },
-      {
-        title: "CMS Migrations (WordPress → SPA)",
-        href: "/services/migrations",
-      },
+      { title: "Product Catalog", href: "/services/retail" },
+      { title: "Point of Sale", href: "/services/pos" },
+      { title: "Inventory Tracking", href: "/services/inventory" },
+      { title: "Coupons & Promotions", href: "/services/promotions" },
     ],
   },
   {
-    heading: "Optimization & Care",
+    heading: "Marketing & Growth",
     items: [
-      { title: "Performance & CWV", href: "/services/performance" },
-      { title: "Technical SEO", href: "/services/seo" },
-      { title: "Accessibility (WCAG)", href: "/services/a11y" },
-      { title: "Maintenance & Support", href: "/services/maintenance" },
-      { title: "Hosting & DevOps", href: "/services/hosting" },
+      { title: "Email & SMS", href: "/services/marketing" },
+      { title: "Loyalty & Rewards", href: "/services/loyalty" },
+      { title: "Reviews & Referrals", href: "/services/reviews" },
+      { title: "Social & Instagram", href: "/services/social" },
+    ],
+  },
+  {
+    heading: "Website & Branding",
+    items: [
+      { title: "Theme Customization", href: "/services/theme" },
+      { title: "Gallery & Before/After", href: "/services/gallery" },
+      { title: "Menu & Pricing Pages", href: "/services/menu-pricing" },
+      { title: "SEO Basics", href: "/services/seo" },
     ],
   },
 ];
 
+/** SHOWCASE (formerly Work) */
 const WORK: LinkItem[] = [
-  { title: "Case Studies", href: "/work" },
-  { title: "Projects", href: "/projects" },
-  { title: "Before & After (WP → SPA)", href: "/work/before-after" },
-  { title: "Testimonials", href: "/work/testimonials" },
+  { title: "Gallery", href: "/gallery" },
+  { title: "Makeovers (Before & After)", href: "/gallery/before-after" },
+  { title: "Client Stories", href: "/stories" },
+  { title: "Reviews & Testimonials", href: "/reviews" },
 ];
 
+/** HELP & INFO (formerly Resources) */
 const RESOURCES: LinkItem[] = [
-  { title: "Blog", href: "/blog" },
-  { title: "Guides & Playbooks", href: "/guides" },
-  { title: "FAQs", href: "/faq" },
-  { title: "Changelog", href: "/changelog" },
+  { title: "Style & Skin Blog", href: "/blog" },
+  { title: "Care Guides (Aftercare)", href: "/guides" },
+  { title: "Policies & FAQs", href: "/policies" },
+  { title: "Gift Card Balance", href: "/gift-cards/balance" },
 ];
 
+/** ABOUT (Company) */
 const COMPANY: LinkItem[] = [
-  { title: "About Us", href: "/aboutus" },
-  { title: "Contact", href: "/contactus" },
+  { title: "About the Spa", href: "/about" },
+  { title: "Our Team", href: "/team" },
+  { title: "Careers", href: "/careers" },
+  { title: "Contact & Location", href: "/contact" },
+  { title: "Hours & Policies", href: "/hours" },
 ];
 
 /* ---------------- Component ---------------- */
@@ -110,10 +129,10 @@ export function MegaMenu() {
           </NavigationMenuLink>
         </NavigationMenuItem>
 
-        {/* Solutions */}
+        {/* Treatments (renamed from Solutions) */}
         <NavigationMenuItem>
           <NavigationMenuTrigger className={triggerNoBgWhiteText}>
-            Solutions
+            Treatments
           </NavigationMenuTrigger>
           <NavigationMenuContent className="rounded-md border border-white/10 bg-gradient-to-b from-slate-950 to-slate-900 text-slate-100 shadow-2xl backdrop-blur">
             <div className="grid gap-3 p-4 md:w-[640px] lg:w-[760px] md:grid-cols-3">
@@ -127,28 +146,28 @@ export function MegaMenu() {
                   <MenuItem key={it.title} item={it} />
                 ))}
               </ul>
-              <div className="flex flex-col justify-between rounded-md border border-white/10 bg-gradient-to-br from-blue-700 to-blue-600 p-4">
+              <div className="flex flex-col justify-between rounded-md border border-white/10 bg-gradient-to-br from-pink-600 to-rose-500 p-4">
                 <div>
-                  <div className="text-xs text-blue-100">Live</div>
+                  <div className="text-xs text-pink-100">New Guests</div>
                   <div className="mt-1 text-base font-semibold text-white">
-                    See Live Demos
+                    Explore Our Service Menu
                   </div>
-                  <p className="mt-1 text-xs text-blue-100/90">
-                    Explore interactive previews of our launch-ready websites.
+                  <p className="mt-1 text-xs text-pink-50/90">
+                    View packages, add-ons, and signature spa experiences.
                   </p>
                 </div>
                 <Link
-                  href="/demos"
+                  href="/treatments"
                   className="mt-3 inline-flex items-center justify-center rounded-md bg-orange-500 px-3 py-2 text-xs font-semibold text-white hover:bg-orange-400"
                 >
-                  View Demos →
+                  See Menu →
                 </Link>
               </div>
             </div>
           </NavigationMenuContent>
         </NavigationMenuItem>
 
-        {/* Services */}
+        {/* Services (ops, marketing, website, etc.) */}
         <NavigationMenuItem>
           <NavigationMenuTrigger className={triggerNoBgWhiteText}>
             Services
@@ -178,7 +197,7 @@ export function MegaMenu() {
                   </p>
                 </div>
                 <Link
-                  href="/contactus?type=quote"
+                  href="/contact?type=quote"
                   className="mt-3 inline-flex items-center justify-center rounded-md bg-orange-500 px-3 py-2 text-xs font-semibold text-white hover:bg-orange-400"
                 >
                   Get a Quote →
@@ -188,10 +207,10 @@ export function MegaMenu() {
           </NavigationMenuContent>
         </NavigationMenuItem>
 
-        {/* Work */}
+        {/* Showcase (was Work) */}
         <NavigationMenuItem>
           <NavigationMenuTrigger className={triggerNoBgWhiteText}>
-            Work
+            Showcase
           </NavigationMenuTrigger>
           <NavigationMenuContent className="rounded-md border border-white/10 bg-gradient-to-b from-slate-950 to-slate-900 text-slate-100 shadow-2xl backdrop-blur">
             <ul className="grid w-[320px] gap-1.5 p-4">
@@ -206,7 +225,7 @@ export function MegaMenu() {
         <NavigationMenuItem>
           <NavigationMenuLink asChild>
             <Link
-              href="/pricing-2"
+              href="/pricing"
               className="px-3 py-2 rounded-md text-white hover:text-white hover:!bg-transparent focus:!bg-transparent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
             >
               Pricing

@@ -4,7 +4,6 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 import OurServices from "@/components/OurServices/OurServices";
-
 import AppointmentSection from "@/components/ui/AppointmentSection";
 import BlogSection from "@/components/ui/BlogSection";
 import GetToKnowUs from "@/components/ui/GetToKnowUs";
@@ -26,9 +25,11 @@ const Page = () => {
   }, []);
 
   return (
-    <div className="wrap pt-16 bg-white dark:bg-gray-800">
+    // ⬇️ clip any accidental sideways overflow at the root
+    <div className="wrap pt-16 bg-white dark:bg-gray-800 overflow-x-clip">
       <MySwiper />
-      <main className="max-w-[1440px] mx-auto w-full px-4 md:px-8 lg:px-2 ">
+
+      <main className="max-w-[1440px] mx-auto w-full px-4 md:px-8 lg:px-2">
         <GetToKnowUs />
         <AppointmentSection />
         <SpaPricingSection />
@@ -73,7 +74,6 @@ const Page = () => {
               rating: 5,
             },
           ]}
-          // optional: swap in your own assets
           bgTextureSrc="/images/bg-texture.jpg"
           leftDecorSrc="/images/serum-left.png"
           rightDecorSrc="/images/flower-right.png"
@@ -87,7 +87,7 @@ const Page = () => {
               id: 2,
               src: "/images/gallery/insta2.webp",
               tags: ["Hairdressing"],
-            }, // optional: custom tags for filtering2.jpg", tags: ["Cosmetology"] },
+            },
             { id: 3, src: "/images/gallery/insta3.webp", tags: ["Spa"] },
             {
               id: 4,
@@ -108,7 +108,6 @@ const Page = () => {
               tags: ["Hairdressing"],
             },
           ]}
-          // optional: custom tab order/labels:
           categories={[
             "All Projects",
             "Cosmetology",
