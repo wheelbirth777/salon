@@ -203,7 +203,7 @@ const COMPANY: LinkItem[] = [
 
 /* Fallback icon for "Policies & FAQs" */
 function HelpIcon(props: React.SVGProps<SVGSVGElement>) {
-  return <Sparkles {...props} />; // swap to a custom help icon if you prefer
+  return <Sparkles {...props} />;
 }
 
 /* ---------------- Component ---------------- */
@@ -387,7 +387,11 @@ function MenuItem({ item }: { item: LinkItem }) {
       <NavigationMenuLink asChild>
         <Link
           href={item.href}
-          className="block rounded-md p-3 transition-colors hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
+          className="
+            block rounded-md p-3 transition-colors
+            hover:bg-transparent focus:bg-transparent active:bg-transparent
+            focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400
+          "
         >
           <div className="flex items-center gap-2">
             {Icon ? <Icon className="h-4 w-4 text-orange-300" /> : null}
