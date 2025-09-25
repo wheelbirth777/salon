@@ -12,7 +12,7 @@ import ProjectsGallery from "@/components/ui/ProjectsGallery";
 import ServicesSection2 from "@/components/ui/ServicesSection2";
 import TestimonialsSection from "@/components/ui/TestimonialsSection";
 import HeroSpa from "@/components/HeroSpa";
-import MySwiper from "@/components/Services/Slider/Slider";
+import MySwiper from "@/components/Slider/Slider";
 import SpaPricingSection from "@/components/ui/SpaPricingSection";
 import TeamCarousel from "@/components/ui/TeamCarousel";
 import TreatmentPricingSection from "@/components/ui/TreatmentPricingSection";

@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import Slider from "./Slider/Slider";
+import Slider from "@/components/Slider/Slider";
 import {
   Accordion,
   AccordionContent,
